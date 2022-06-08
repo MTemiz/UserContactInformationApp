@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using UserContactInformation.Application.Features.Person.Dto;
+using UserContactInformation.Application.Interface.Repository;
 
 namespace UserContactInformation.Application.Features.Person.Queries
 {
-    internal class ListPersonsQueryHandler
+    public class ListPersonsQueryHandler : IRequestHandler<ListPersonsQuery, IEnumerable<PersonDto>>
     {
+        private readonly IPersonRepository personRepository;
+
+        public ListPersonsQueryHandler(IPersonRepository personRepository)
+        {
+            this.personRepository = personRepository;
+        }
+
+        public Task<IEnumerable<PersonDto>> Handle(ListPersonsQuery request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

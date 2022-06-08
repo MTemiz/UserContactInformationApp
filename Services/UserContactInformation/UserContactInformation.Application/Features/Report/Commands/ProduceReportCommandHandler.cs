@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace UserContactInformation.Application.Features.Report.Commands
 {
-    internal class ProduceReportCommandHandler
+    public class ProduceReportCommandHandler : IRequestHandler<ProduceReportCommand, int>
     {
+        public Task<int> Handle(ProduceReportCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

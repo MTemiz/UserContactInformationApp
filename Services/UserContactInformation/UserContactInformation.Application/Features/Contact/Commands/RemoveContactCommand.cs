@@ -1,6 +1,9 @@
-﻿namespace UserContactInformation.Application.Features.Contact.Commands
+﻿using MediatR;
+
+namespace UserContactInformation.Application.Features.Contact.Commands
 {
-    internal class RemoveContactCommand
+    public class RemoveContactCommand : IRequest<int>
     {
+        public Guid Id { get; set; }
     }
 }

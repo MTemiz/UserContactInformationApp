@@ -1,6 +1,11 @@
-﻿namespace UserContactInformation.Application.Features.Person.Commands
+﻿using MediatR;
+
+namespace UserContactInformation.Application.Features.Person.Commands
 {
-    internal class AddPersonCommand
+    public class AddPersonCommand : IRequest<int>
     {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Company { get; set; }
     }
 }
