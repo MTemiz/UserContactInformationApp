@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserContactInformation.Domain.Features.Person.Queries
+namespace UserContactInformation.Application.Features.Report.Commands
 {
-    internal class ListPersonsQueryHandler
+    internal class ProduceReportCommand
     {
     }
 }

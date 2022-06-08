@@ -15,4 +15,8 @@
     <ProjectReference Include="..\UserContactInformation.Domain\UserContactInformation.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Contact\Queries\" />
+  </ItemGroup>
+
 </Project>

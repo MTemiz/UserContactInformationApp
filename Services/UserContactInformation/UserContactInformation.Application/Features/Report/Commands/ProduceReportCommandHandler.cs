@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserContactInformation.Domain.Features.Report.Queries
+namespace UserContactInformation.Application.Features.Report.Commands
 {
-    internal class GetReportDetailByIdQueryHandler
+    internal class ProduceReportCommandHandler
     {
     }
 }
