@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserContactInformation.Domain.Entities;
 
-namespace UserContactInformation.Application.Interface.Persistence.Context
+namespace UserContactInformation.Application.Interface.Context
 {
     public interface IApplicationDbContext
     {

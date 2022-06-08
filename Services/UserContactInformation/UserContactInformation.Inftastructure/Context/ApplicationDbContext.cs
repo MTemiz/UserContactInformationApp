@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserContactInformation.Application.Interface;
+using UserContactInformation.Application.Interface.Context;
 using UserContactInformation.Domain.Entities;
-using UserContactInformation.Inftastructure.Persistence.Configuration;
+using UserContactInformation.Inftastructure.Configuration;
 
-namespace UserContactInformation.Inftastructure.Persistence.Context
+namespace UserContactInformation.Inftastructure.Context
 {
     internal class ApplicationDbContext : DbContext, IApplicationDbContext
     {

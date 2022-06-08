@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UserContactInformation.Domain.Entities;
 
-namespace UserContactInformation.Inftastructure.Persistence.Configuration
+namespace UserContactInformation.Inftastructure.Configuration
 {
     public class ContactEntityTypeConfiguration : IEntityTypeConfiguration<Contact>
     {

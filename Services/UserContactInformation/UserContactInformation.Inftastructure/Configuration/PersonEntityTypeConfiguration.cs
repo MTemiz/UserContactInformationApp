@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UserContactInformation.Domain.Entities;
 
-namespace UserContactInformation.Inftastructure.Persistence.Configuration
+namespace UserContactInformation.Inftastructure.Configuration
 {
     public class PersonEntityTypeConfiguration : IEntityTypeConfiguration<Person>
     {
