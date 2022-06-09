@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
-    <PackageReference Include="Npgsql" Version="6.0.4" />
+    <None Remove="Extensions\ServiceExtensions.cs~RF557a7cf.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +16,11 @@
 
   <ItemGroup>
     <Folder Include="Features\Contact\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

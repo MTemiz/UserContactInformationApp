@@ -8,7 +8,15 @@ namespace UserContactInformation.Inftastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Person");
+
+            builder.HasKey(c => c.Id);
+            builder.HasIndex(c => c.Id).IsUnique();
+
+            builder.Property(c => c.Id)
+                .HasColumnType("uuid")
+                .HasDefaultValueSql("uuid_generate_v4()")
+                .IsRequired();
         }
     }
 }

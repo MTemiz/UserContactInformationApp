@@ -5,26 +5,35 @@ using UserContactInformation.Inftastructure.Configuration;
 
 namespace UserContactInformation.Inftastructure.Context
 {
-    internal class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql();
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new PersonEntityTypeConfiguration());
-            builder.ApplyConfiguration(new PersonEntityTypeConfiguration());
+            builder.ApplyConfiguration(new ContactEntityTypeConfiguration());
 
             base.OnModelCreating(builder);
         }
-        public DbSet<Person> Users { get; set; }
+
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Contact> Contacts { get; set; }
 
-        public async Task<int> SaveChangesAsync()
+        public int SaveChanges()
         {
-            return await base.SaveChangesAsync();
+            return base.SaveChanges();
         }
     }
 }

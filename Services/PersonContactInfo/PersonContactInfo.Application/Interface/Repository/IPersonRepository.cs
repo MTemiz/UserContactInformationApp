@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UserContactInformation.Domain.Entities;
 
 namespace UserContactInformation.Application.Interface.Repository
 {
     public interface IPersonRepository
     {
+        void Add(Person person);
+        void Remove(Person person);
     }
 }
