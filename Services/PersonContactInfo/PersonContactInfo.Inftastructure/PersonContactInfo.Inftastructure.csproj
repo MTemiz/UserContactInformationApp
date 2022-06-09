@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserContactInformation.Application\UserContactInformation.Application.csproj" />
-    <ProjectReference Include="..\UserContactInformation.Domain\UserContactInformation.Domain.csproj" />
+    <ProjectReference Include="..\PersonContactInfo.Application\PersonContactInfo.Application.csproj" />
+    <ProjectReference Include="..\PersonContactInfo.Domain\PersonContactInfo.Domain.csproj" />
   </ItemGroup>
 
 </Project>
