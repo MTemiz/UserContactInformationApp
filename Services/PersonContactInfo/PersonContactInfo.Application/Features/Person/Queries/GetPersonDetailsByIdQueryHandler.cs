@@ -2,18 +2,18 @@
 using UserContactInformation.Application.Features.Person.Dtos;
 using UserContactInformation.Application.Interface.Repository;
 
-namespace UserContactInformation.Application.Features.Person.Commands
+namespace PersonContactInfo.Application.Features.Person.Queries
 {
-    public class AddPersonCommandHandler : IRequestHandler<AddPersonCommand, PersonDto>
+    public class GetPersonDetailsByIdQueryHandler : IRequestHandler<GetPersonDetailsByIdQuery, PersonDto>
     {
         private readonly IPersonRepository personRepository;
 
-        public AddPersonCommandHandler(IPersonRepository personRepository)
+        public GetPersonDetailsByIdQueryHandler(IPersonRepository personRepository)
         {
             this.personRepository = personRepository;
         }
 
-        public Task<PersonDto> Handle(AddPersonCommand request, CancellationToken cancellationToken)
+        public Task<PersonDto> Handle(GetPersonDetailsByIdQuery request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

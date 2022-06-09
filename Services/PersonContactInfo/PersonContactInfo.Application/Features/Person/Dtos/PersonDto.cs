@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonContactInfo.Application.Features.Contact.Dtos;
 
-namespace UserContactInformation.Application.Features.Person.Dto
+namespace UserContactInformation.Application.Features.Person.Dtos
 {
     public class PersonDto
     {
@@ -14,5 +10,6 @@ namespace UserContactInformation.Application.Features.Person.Dto
         public string Company { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? LastUpdatedDate { get; set; }
+        public ICollection<ContactDto> Contacts { get; set; }
     }
 }

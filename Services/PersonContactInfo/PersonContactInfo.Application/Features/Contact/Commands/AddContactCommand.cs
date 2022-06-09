@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using PersonContactInfo.Application.Features.Contact.Dtos;
 
 namespace UserContactInformation.Application.Features.Contact.Commands
 {
-    public class AddContactCommand : IRequest<int>
+    public class AddContactCommand : IRequest<ContactDto>
     {
         public Guid PersonId { get; set; }
         public string Phone { get; set; }

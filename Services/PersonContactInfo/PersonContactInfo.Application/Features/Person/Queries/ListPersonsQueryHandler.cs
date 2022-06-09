@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using UserContactInformation.Application.Features.Person.Dto;
+using UserContactInformation.Application.Features.Person.Dtos;
 using UserContactInformation.Application.Interface.Repository;
 
 namespace UserContactInformation.Application.Features.Person.Queries

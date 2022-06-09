@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using PersonContactInfo.Application.Features.Contact.Dtos;
 using UserContactInformation.Application.Interface.Repository;
 
 namespace UserContactInformation.Application.Features.Contact.Commands
 {
-    public class AddContactCommandHandler : IRequestHandler<AddContactCommand, int>
+    public class AddContactCommandHandler : IRequestHandler<AddContactCommand, ContactDto>
     {
         private readonly IContactRepository contactRepository;
 
@@ -12,7 +13,7 @@ namespace UserContactInformation.Application.Features.Contact.Commands
             this.contactRepository = contactRepository;
         }
 
-        public Task<int> Handle(AddContactCommand request, CancellationToken cancellationToken)
+        public Task<ContactDto> Handle(AddContactCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
