@@ -16,13 +16,13 @@ namespace UserContactInformation.Application.Features.Person.Commands
             this.mapper = mapper;
         }
 
-        public Task<PersonDto> Handle(AddPersonCommand request, CancellationToken cancellationToken)
+        public async Task<PersonDto> Handle(AddPersonCommand request, CancellationToken cancellationToken)
         {
             var person = mapper.Map<Domain.Entities.Person>(request);
 
-            personRepository.AddAsync(person);
+            await personRepository.AddAsync(person);
 
-            return Task.FromResult(mapper.Map<PersonDto>(person));
+            return await Task.FromResult(mapper.Map<PersonDto>(person));
         }
     }
 }

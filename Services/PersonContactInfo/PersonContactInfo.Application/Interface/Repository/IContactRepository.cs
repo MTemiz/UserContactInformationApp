@@ -9,5 +9,6 @@ namespace UserContactInformation.Application.Interface.Repository
 
         Task<int> AddAsync(Contact contact);
         Task<int> RemoveAsync(Contact contact);
+        IQueryable<Contact> GetAll();
     }
 }

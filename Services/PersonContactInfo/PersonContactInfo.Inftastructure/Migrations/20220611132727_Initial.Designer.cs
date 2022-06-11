@@ -12,7 +12,7 @@ using UserContactInformation.Inftastructure.Context;
 namespace PersonContactInfo.Inftastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220610223324_Initial")]
+    [Migration("20220611132727_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,14 +32,14 @@ namespace PersonContactInfo.Inftastructure.Migrations
                         .HasDefaultValueSql("gen_random_uuid()");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("LastUpdatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -74,10 +74,10 @@ namespace PersonContactInfo.Inftastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime?>("LastUpdatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Name")
                         .IsRequired()

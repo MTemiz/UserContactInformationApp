@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBus.Factory\EventBus.Factory.csproj" />
     <ProjectReference Include="..\PersonContactInfo.Domain\PersonContactInfo.Domain.csproj" />
   </ItemGroup>
 

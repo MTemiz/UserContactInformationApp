@@ -17,8 +17,8 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Company = table.Column<string>(type: "text", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,8 +34,8 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     Phone = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     Location = table.Column<string>(type: "text", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
                 },
                 constraints: table =>
                 {

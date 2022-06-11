@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserContactInformation.Domain.Entities;
 
 namespace UserContactInformation.Inftastructure.Configuration
@@ -22,6 +18,10 @@ namespace UserContactInformation.Inftastructure.Configuration
                 .HasColumnType("uuid")
                 .HasDefaultValueSql("gen_random_uuid()")
                 .IsRequired();
+
+            builder.Property(c => c.CreatedDate).HasColumnType("timestamp without time zone");
+
+            builder.Property(c => c.LastUpdatedDate).HasColumnType("timestamp without time zone");
         }
     }
 }

@@ -1,15 +1,24 @@
+using Report.API.Extensions;
+using Report.Application.Extensions;
+using Report.Infrastructure.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCustomDbContext(builder.Configuration);
+builder.Services.AddRepositories();
+builder.Services.AddCustomMediatR();
+builder.Services.AddCustomAutoMapper();
+builder.Services.AddCustomEventBus();
+builder.Services.AddCustomEventBusHandlers();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,7 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
 app.MapControllers();
-
+app.SubscribeEventBus();
+app.DatabaseMigrate();
 app.Run();

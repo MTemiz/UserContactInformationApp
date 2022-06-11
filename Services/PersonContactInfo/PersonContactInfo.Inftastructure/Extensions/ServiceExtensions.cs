@@ -10,7 +10,7 @@ namespace PersonContactInfo.Inftastructure.Extensions
 {
     public static class ServiceExtensions
     {
-        public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static void AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -19,7 +19,10 @@ namespace PersonContactInfo.Inftastructure.Extensions
             });
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            
+        }
+
+        public static void AddRepositories(this IServiceCollection services)
+        {
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
         }

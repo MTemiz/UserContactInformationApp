@@ -35,5 +35,10 @@ namespace UserContactInformation.Inftastructure.Repositories
 
             return await context.SaveChangesAsync();
         }
+
+        public IQueryable<Contact> GetAll()
+        {
+            return context.Contacts.AsQueryable();
+        }
     }
 }

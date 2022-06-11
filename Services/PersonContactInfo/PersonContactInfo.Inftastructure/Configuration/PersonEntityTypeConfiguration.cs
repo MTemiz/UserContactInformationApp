@@ -17,6 +17,10 @@ namespace UserContactInformation.Inftastructure.Configuration
                 .HasColumnType("uuid")
                 .HasDefaultValueSql("gen_random_uuid()")
                 .IsRequired();
+
+            builder.Property(c => c.CreatedDate).HasColumnType("timestamp without time zone");
+
+            builder.Property(c => c.LastUpdatedDate).HasColumnType("timestamp without time zone");
         }
     }
 }
