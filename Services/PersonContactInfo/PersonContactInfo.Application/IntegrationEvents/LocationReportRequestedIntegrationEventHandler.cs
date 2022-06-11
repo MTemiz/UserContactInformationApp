@@ -31,7 +31,7 @@ namespace PersonContactInfo.Application.IntegrationEvents
                    PersonCount = locations.Select(c => c.PersonId).Count()
                }).ToListAsync();
 
-            eventBus.Publish(new LocationReportGeneratedIntegrationEvent(@event.Id, new List<LocationBasedReportIntegrationDto>() { new LocationBasedReportIntegrationDto() { Location = "Ankara", PersonCount = 1, PhoneCount = 5 } }));
+            eventBus.Publish(new LocationReportGeneratedIntegrationEvent(@event.Id, locationBasedReport));
 
             await Task.CompletedTask;
         }
