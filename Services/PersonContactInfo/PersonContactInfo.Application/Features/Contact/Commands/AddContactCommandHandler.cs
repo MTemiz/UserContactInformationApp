@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
 using PersonContactInfo.Application.Features.Contact.Dtos;
-using UserContactInformation.Application.Interface.Repository;
+using PersonContactInfo.Application.Interface.Repository;
 
-namespace UserContactInformation.Application.Features.Contact.Commands
+namespace PersonContactInfo.Application.Features.Contact.Commands
 {
     public class AddContactCommandHandler : IRequestHandler<AddContactCommand, ContactDto>
     {

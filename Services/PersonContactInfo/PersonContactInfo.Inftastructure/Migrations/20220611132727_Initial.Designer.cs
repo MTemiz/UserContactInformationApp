@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using UserContactInformation.Inftastructure.Context;
+using PersonContactInfo.Inftastructure.Context;
 
 #nullable disable
 
@@ -24,7 +24,7 @@ namespace PersonContactInfo.Inftastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("UserContactInformation.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("PersonContactInfo.Domain.Entities.Contact", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     b.ToTable("Contact", (string)null);
                 });
 
-            modelBuilder.Entity("UserContactInformation.Domain.Entities.Person", b =>
+            modelBuilder.Entity("PersonContactInfo.Domain.Entities.Person", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,16 +95,16 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     b.ToTable("Person", (string)null);
                 });
 
-            modelBuilder.Entity("UserContactInformation.Domain.Entities.Contact", b =>
+            modelBuilder.Entity("PersonContactInfo.Domain.Entities.Contact", b =>
                 {
-                    b.HasOne("UserContactInformation.Domain.Entities.Person", null)
+                    b.HasOne("PersonContactInfo.Domain.Entities.Person", null)
                         .WithMany("Contacts")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("UserContactInformation.Domain.Entities.Person", b =>
+            modelBuilder.Entity("PersonContactInfo.Domain.Entities.Person", b =>
                 {
                     b.Navigation("Contacts");
                 });

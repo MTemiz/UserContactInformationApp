@@ -1,10 +1,10 @@
 ﻿using BuildingBlocks.Domain;
 using Microsoft.EntityFrameworkCore;
-using UserContactInformation.Application.Interface.Context;
-using UserContactInformation.Domain.Entities;
-using UserContactInformation.Inftastructure.Configuration;
+using PersonContactInfo.Application.Interface.Context;
+using PersonContactInfo.Domain.Entities;
+using PersonContactInfo.Inftastructure.Configuration;
 
-namespace UserContactInformation.Inftastructure.Context
+namespace PersonContactInfo.Inftastructure.Context
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {

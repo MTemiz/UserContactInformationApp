@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "UserContactInformation.API": {
+    "PersonContactInfo.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -1,8 +1,8 @@
-﻿using UserContactInformation.Application.Interface.Context;
-using UserContactInformation.Application.Interface.Repository;
-using UserContactInformation.Domain.Entities;
+﻿using PersonContactInfo.Application.Interface.Context;
+using PersonContactInfo.Application.Interface.Repository;
+using PersonContactInfo.Domain.Entities;
 
-namespace UserContactInformation.Inftastructure.Repositories
+namespace PersonContactInfo.Inftastructure.Repositories
 {
     public class ContactRepository : IContactRepository
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserContactInformation.Domain.Entities;
+using PersonContactInfo.Domain.Entities;
 
-namespace UserContactInformation.Application.Interface.Context
+namespace PersonContactInfo.Application.Interface.Context
 {
     public interface IApplicationDbContext
     {

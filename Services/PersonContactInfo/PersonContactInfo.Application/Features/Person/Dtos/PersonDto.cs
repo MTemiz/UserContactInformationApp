@@ -1,6 +1,6 @@
 ﻿using PersonContactInfo.Application.Features.Contact.Dtos;
 
-namespace UserContactInformation.Application.Features.Person.Dtos
+namespace PersonContactInfo.Application.Features.Person.Dtos
 {
     public class PersonDto
     {

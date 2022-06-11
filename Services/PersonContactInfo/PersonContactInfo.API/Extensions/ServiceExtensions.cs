@@ -1,7 +1,7 @@
 ﻿using EventBus.Base.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using PersonContactInfo.Application.IntegrationEvents;
-using UserContactInformation.Inftastructure.Context;
+using PersonContactInfo.Inftastructure.Context;
 
 namespace PersonContactInfo.API.Extensions
 {

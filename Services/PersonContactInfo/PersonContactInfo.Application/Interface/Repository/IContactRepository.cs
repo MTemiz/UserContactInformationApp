@@ -1,6 +1,6 @@
-﻿using UserContactInformation.Domain.Entities;
+﻿using PersonContactInfo.Domain.Entities;
 
-namespace UserContactInformation.Application.Interface.Repository
+namespace PersonContactInfo.Application.Interface.Repository
 {
     public interface IContactRepository
     {

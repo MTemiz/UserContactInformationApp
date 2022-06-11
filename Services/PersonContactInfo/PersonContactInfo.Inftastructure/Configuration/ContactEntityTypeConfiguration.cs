@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using UserContactInformation.Domain.Entities;
+using PersonContactInfo.Domain.Entities;
 
-namespace UserContactInformation.Inftastructure.Configuration
+namespace PersonContactInfo.Inftastructure.Configuration
 {
     public class ContactEntityTypeConfiguration : IEntityTypeConfiguration<Contact>
     {

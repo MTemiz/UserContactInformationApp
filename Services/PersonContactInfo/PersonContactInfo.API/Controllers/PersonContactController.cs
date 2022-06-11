@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using PersonContactInfo.Application.Features.Contact.Dtos;
 using PersonContactInfo.Application.Features.Person.Queries;
 using System.Net.Mime;
-using UserContactInformation.Application.Features.Contact.Commands;
-using UserContactInformation.Application.Features.Person.Commands;
-using UserContactInformation.Application.Features.Person.Dtos;
-using UserContactInformation.Application.Features.Person.Queries;
+using PersonContactInfo.Application.Features.Contact.Commands;
+using PersonContactInfo.Application.Features.Person.Commands;
+using PersonContactInfo.Application.Features.Person.Dtos;
+using PersonContactInfo.Application.Features.Person.Queries;
 
-namespace UserContactInformation.API.Controllers
+namespace PersonContactInfo.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

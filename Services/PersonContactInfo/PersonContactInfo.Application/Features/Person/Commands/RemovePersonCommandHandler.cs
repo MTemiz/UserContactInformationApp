@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using PersonContactInfo.Application.Exceptions;
-using UserContactInformation.Application.Interface.Repository;
+using PersonContactInfo.Application.Interface.Repository;
 
-namespace UserContactInformation.Application.Features.Person.Commands
+namespace PersonContactInfo.Application.Features.Person.Commands
 {
     public class RemovePersonCommandHandler : IRequestHandler<RemovePersonCommand, int>
     {

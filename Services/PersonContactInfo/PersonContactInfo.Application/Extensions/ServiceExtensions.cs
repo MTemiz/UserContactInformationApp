@@ -8,10 +8,10 @@ using PersonContactInfo.Application.Features.Person.Queries;
 using PersonContactInfo.Application.IntegrationEvents;
 using RabbitMQ.Client;
 using System.Reflection;
-using UserContactInformation.Application.Features.Contact.Commands;
-using UserContactInformation.Application.Features.Person.Commands;
-using UserContactInformation.Application.Features.Person.Dtos;
-using UserContactInformation.Application.Features.Person.Queries;
+using PersonContactInfo.Application.Features.Contact.Commands;
+using PersonContactInfo.Application.Features.Person.Commands;
+using PersonContactInfo.Application.Features.Person.Dtos;
+using PersonContactInfo.Application.Features.Person.Queries;
 
 namespace PersonContactInfo.Application.Extensions
 {

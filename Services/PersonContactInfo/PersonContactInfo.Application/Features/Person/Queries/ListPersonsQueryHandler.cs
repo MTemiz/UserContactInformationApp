@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using UserContactInformation.Application.Features.Person.Dtos;
-using UserContactInformation.Application.Interface.Repository;
+using PersonContactInfo.Application.Features.Person.Dtos;
+using PersonContactInfo.Application.Interface.Repository;
 
-namespace UserContactInformation.Application.Features.Person.Queries
+namespace PersonContactInfo.Application.Features.Person.Queries
 {
     public class ListPersonsQueryHandler : IRequestHandler<ListPersonsQuery, List<PersonDto>>
     {

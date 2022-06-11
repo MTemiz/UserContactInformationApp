@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using PersonContactInfo.Application.Exceptions;
-using UserContactInformation.Application.Features.Person.Dtos;
-using UserContactInformation.Application.Interface.Repository;
+using PersonContactInfo.Application.Features.Person.Dtos;
+using PersonContactInfo.Application.Interface.Repository;
 
 namespace PersonContactInfo.Application.Features.Person.Queries
 {

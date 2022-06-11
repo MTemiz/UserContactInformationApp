@@ -1,6 +1,6 @@
 ﻿using EventBus.Base.Abstraction;
 using PersonContactInfo.Application.IntegrationModels;
-using UserContactInformation.Application.Interface.Repository;
+using PersonContactInfo.Application.Interface.Repository;
 
 namespace PersonContactInfo.Application.IntegrationEvents
 {

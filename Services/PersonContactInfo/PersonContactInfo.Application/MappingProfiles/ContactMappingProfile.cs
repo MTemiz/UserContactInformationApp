@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using PersonContactInfo.Application.Features.Contact.Dtos;
-using UserContactInformation.Application.Features.Contact.Commands;
-using UserContactInformation.Domain.Entities;
+using PersonContactInfo.Application.Features.Contact.Commands;
+using PersonContactInfo.Domain.Entities;
 
 namespace PersonContactInfo.Application.MappingProfiles
 {
