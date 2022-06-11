@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Report.Application.Features.LocationReport.Dtos;
 using Report.Application.Interfaces.Repositories;
 
@@ -18,7 +19,7 @@ namespace Report.Application.Features.LocationReport.Queries
 
         public async Task<IEnumerable<LocationReportDto>> Handle(ListLocationReportsQuery request, CancellationToken cancellationToken)
         {
-            var locationReports = locationReportRepository.GetAll();
+            var locationReports = await locationReportRepository.GetAll().ToListAsync();
 
             var locationReportDtos = mapper.Map<IEnumerable<LocationReportDto>>(locationReports);
 

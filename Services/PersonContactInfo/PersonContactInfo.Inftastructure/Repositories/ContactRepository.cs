@@ -1,4 +1,5 @@
-﻿using PersonContactInfo.Application.Interface.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonContactInfo.Application.Interface.Context;
 using PersonContactInfo.Application.Interface.Repository;
 using PersonContactInfo.Domain.Entities;
 
@@ -15,18 +16,19 @@ namespace PersonContactInfo.Inftastructure.Repositories
 
         public async Task<int> AddAsync(Contact contact)
         {
-            context.Contacts.Add(contact);
+            await context.Contacts.AddAsync(contact);
+
             return await context.SaveChangesAsync();
         }
 
-        public Contact? GetById(Guid id)
+        public async Task<Contact?> GetByIdAsync(Guid id)
         {
-            return context.Contacts.FirstOrDefault(c => c.Id == id);
+            return await context.Contacts.FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public List<Contact> GetByPersonId(Guid personId)
+        public async Task<List<Contact>> GetByPersonIdAsync(Guid personId)
         {
-            return context.Contacts.Where(c => c.PersonId == personId).ToList();
+            return await context.Contacts.Where(c => c.PersonId == personId).ToListAsync();
         }
 
         public async Task<int> RemoveAsync(Contact contact)

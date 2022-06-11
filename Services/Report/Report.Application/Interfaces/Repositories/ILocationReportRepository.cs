@@ -6,9 +6,10 @@ namespace Report.Application.Interfaces.Repositories
     {
         Task<int> AddAsync(LocationReport locationReport);
 
-        IEnumerable<LocationReport> GetAll();
+        IQueryable<LocationReport> GetAll();
 
-        LocationReport? GetById(Guid id);
+        Task<LocationReport?> GetByIdAsync(Guid id);
+
         Task<int> UpdateAsync(LocationReport locationReport);
     }
 }

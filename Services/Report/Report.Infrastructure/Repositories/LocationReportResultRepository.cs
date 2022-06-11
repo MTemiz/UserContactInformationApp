@@ -15,7 +15,8 @@ namespace Report.Infrastructure.Repositories
 
         public async Task<int> AddAsync(LocationReportResult locationReportResult)
         {
-            context.LocationReportResults.Add(locationReportResult);
+            await context.LocationReportResults.AddAsync(locationReportResult);
+
             return await context.SaveChangesAsync();
         }
     }

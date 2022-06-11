@@ -18,7 +18,7 @@ namespace PersonContactInfo.Application.Features.Contact.Commands
 
         public async Task<int> Handle(RemoveContactCommand request, CancellationToken cancellationToken)
         {
-            var contact = contactRepository.GetById(request.Id);
+            var contact = await contactRepository.GetByIdAsync(request.Id);
 
             if (contact is null)
             {

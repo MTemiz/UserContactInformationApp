@@ -17,9 +17,9 @@ namespace PersonContactInfo.Application.Features.Person.Queries
             this.mapper = mapper;
         }
 
-        public Task<PersonDto> Handle(GetPersonDetailsByIdQuery request, CancellationToken cancellationToken)
+        public async Task<PersonDto> Handle(GetPersonDetailsByIdQuery request, CancellationToken cancellationToken)
         {
-            var person = personRepository.GetByIdWithContacts(request.Id);
+            var person = await personRepository.GetByIdWithContactsAsync(request.Id);
 
             if (person is null)
             {
@@ -28,7 +28,7 @@ namespace PersonContactInfo.Application.Features.Person.Queries
 
             var personDto = mapper.Map<PersonDto>(person);
 
-            return Task.FromResult(personDto);
+            return await Task.FromResult(personDto);
         }
     }
 }

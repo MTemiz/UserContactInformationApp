@@ -16,18 +16,19 @@ namespace PersonContactInfo.Inftastructure.Repositories
 
         public async Task<int> AddAsync(Person person)
         {
-            context.Persons.Add(person);
+            await context.Persons.AddAsync(person);
+
             return await context.SaveChangesAsync();
         }
 
-        public List<Person> GetAllWithContacts()
+        public async Task<List<Person>> GetAllWithContactsAsync()
         {
-            return context.Persons.Include(c => c.Contacts).ToList();
+            return await context.Persons.Include(c => c.Contacts).ToListAsync();
         }
 
-        public Person? GetByIdWithContacts(Guid id)
+        public async Task<Person?> GetByIdWithContactsAsync(Guid id)
         {
-            return context.Persons.Include(c => c.Contacts).FirstOrDefault(c => c.Id == id);
+            return await context.Persons.Include(c => c.Contacts).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<int> RemoveAsync(Person person)

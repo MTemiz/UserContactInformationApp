@@ -19,7 +19,7 @@ namespace Report.Application.Features.LocationReport.Queries
 
         public async Task<LocationReportDto> Handle(GetLocationReportDetailsByIdQuery request, CancellationToken cancellationToken)
         {
-            var locationReport = locationReportRepository.GetById(request.Id);
+            var locationReport = await locationReportRepository.GetByIdAsync(request.Id);
 
             if (locationReport is null)
             {

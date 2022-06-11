@@ -16,13 +16,13 @@ namespace PersonContactInfo.Application.Features.Person.Queries
             this.mapper = mapper;
         }
 
-        public Task<List<PersonDto>> Handle(ListPersonsQuery request, CancellationToken cancellationToken)
+        public async Task<List<PersonDto>> Handle(ListPersonsQuery request, CancellationToken cancellationToken)
         {
-            var personList = personRepository.GetAllWithContacts();
+            var personList = await personRepository.GetAllWithContactsAsync();
 
             var personDtoList = mapper.Map<List<PersonDto>>(personList);
 
-            return Task.FromResult(personDtoList);
+           return await Task.FromResult(personDtoList);
         }
     }
 }

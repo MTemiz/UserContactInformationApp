@@ -17,7 +17,7 @@ namespace Report.Application.IntegrationEvents
 
         public async Task Handle(LocationReportGeneratedIntegrationEvent @event)
         {
-            var locationReport = locationReportRepository.GetById(@event.Id);
+            var locationReport = await locationReportRepository.GetByIdAsync(@event.Id);
 
             if (locationReport is null)
             {
