@@ -7,6 +7,6 @@ namespace UserContactInformation.Application.Interface.Context
     {
         public DbSet<Person> Persons { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        int SaveChanges();
+        Task<int> SaveChangesAsync();
     }
 }

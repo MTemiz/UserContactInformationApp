@@ -12,6 +12,7 @@ namespace UserContactInformation.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Consumes(MediaTypeNames.Application.Json)]
     public class PersonContactController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -21,18 +22,19 @@ namespace UserContactInformation.API.Controllers
             this.mediator = mediator;
         }
 
-        [HttpGet(Name = "addperson")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpPost]
+        [Route("addperson")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PersonDto))]
         public async Task<IActionResult> AddPerson(AddPersonCommand command)
         {
             return Ok(await mediator.Send(command));
         }
 
+        [HttpDelete]
+        [Route("removeperson")]
 
-        [HttpGet(Name = "removeperson")]
-        [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> RemovePerson(RemovePersonCommand command)
         {
             await mediator.Send(command);
@@ -40,17 +42,18 @@ namespace UserContactInformation.API.Controllers
             return NoContent();
         }
 
-        [HttpGet(Name = "addcontact")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpPost]
+        [Route("addcontact")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ContactDto))]
         public async Task<IActionResult> AddContact(AddContactCommand command)
         {
             return Ok(await mediator.Send(command));
         }
 
-        [HttpGet(Name = "removecontact")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpDelete]
+        [Route("removecontact")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> RemoveContact(RemoveContactCommand command)
         {
             await mediator.Send(command);
@@ -58,18 +61,19 @@ namespace UserContactInformation.API.Controllers
             return NoContent();
         }
 
-        [HttpGet(Name = "listpersons")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpGet]
+        [Route("listpersons")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<PersonDto>))]
-        public async Task<IActionResult> ListPersons(ListPersonsQuery query)
+        public async Task<IActionResult> ListPersons()
         {
-            return Ok(await mediator.Send(query));
+            return Ok(await mediator.Send(new ListPersonsQuery()));
         }
 
-        [HttpGet(Name = "getpersondetailsbyid")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpGet]
+        [Route("getpersondetailsbyid")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PersonDto))]
-        public async Task<IActionResult> GetPersonDetailsById(GetPersonDetailsByIdQuery query)
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetPersonDetailsById([FromQuery] GetPersonDetailsByIdQuery query)
         {
             return Ok(await mediator.Send(query));
         }

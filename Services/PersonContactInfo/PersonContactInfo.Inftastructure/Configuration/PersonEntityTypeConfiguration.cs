@@ -15,7 +15,7 @@ namespace UserContactInformation.Inftastructure.Configuration
 
             builder.Property(c => c.Id)
                 .HasColumnType("uuid")
-                .HasDefaultValueSql("uuid_generate_v4()")
+                .HasDefaultValueSql("gen_random_uuid()")
                 .IsRequired();
         }
     }

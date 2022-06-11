@@ -12,7 +12,7 @@ using UserContactInformation.Inftastructure.Context;
 namespace PersonContactInfo.Inftastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220609212343_Initial")]
+    [Migration("20220610223324_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,7 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasDefaultValueSql("uuid_generate_v4()");
+                        .HasDefaultValueSql("gen_random_uuid()");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -67,7 +67,7 @@ namespace PersonContactInfo.Inftastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasDefaultValueSql("uuid_generate_v4()");
+                        .HasDefaultValueSql("gen_random_uuid()");
 
                     b.Property<string>("Company")
                         .IsRequired()

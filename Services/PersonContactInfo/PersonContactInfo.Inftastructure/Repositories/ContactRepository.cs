@@ -13,16 +13,27 @@ namespace UserContactInformation.Inftastructure.Repositories
             this.context = context;
         }
 
-        public void Add(Contact contact)
+        public async Task<int> AddAsync(Contact contact)
         {
             context.Contacts.Add(contact);
-            context.SaveChanges();
+            return await context.SaveChangesAsync();
         }
 
-        public void Remove(Contact contact)
+        public Contact? GetById(Guid id)
+        {
+            return context.Contacts.FirstOrDefault(c => c.Id == id);
+        }
+
+        public List<Contact> GetByPersonId(Guid personId)
+        {
+            return context.Contacts.Where(c => c.PersonId == personId).ToList();
+        }
+
+        public async Task<int> RemoveAsync(Contact contact)
         {
             context.Contacts.Remove(contact);
-            context.SaveChanges();
+
+            return await context.SaveChangesAsync();
         }
     }
 }

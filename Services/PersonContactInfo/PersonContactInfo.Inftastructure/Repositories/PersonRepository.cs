@@ -1,4 +1,5 @@
-﻿using UserContactInformation.Application.Interface.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using UserContactInformation.Application.Interface.Context;
 using UserContactInformation.Application.Interface.Repository;
 using UserContactInformation.Domain.Entities;
 
@@ -13,16 +14,26 @@ namespace UserContactInformation.Inftastructure.Repositories
             this.context = context;
         }
 
-        public void Add(Person person)
+        public async Task<int> AddAsync(Person person)
         {
             context.Persons.Add(person);
-            context.SaveChanges();
+            return await context.SaveChangesAsync();
         }
 
-        public void Remove(Person person)
+        public List<Person> GetAllWithContacts()
+        {
+            return context.Persons.Include(c => c.Contacts).ToList();
+        }
+
+        public Person? GetByIdWithContacts(Guid id)
+        {
+            return context.Persons.Include(c => c.Contacts).FirstOrDefault(c => c.Id == id);
+        }
+
+        public async Task<int> RemoveAsync(Person person)
         {
             context.Persons.Remove(person);
-            context.SaveChanges();
+            return await context.SaveChangesAsync();
         }
     }
 }

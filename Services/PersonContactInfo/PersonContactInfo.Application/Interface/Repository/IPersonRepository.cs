@@ -4,7 +4,11 @@ namespace UserContactInformation.Application.Interface.Repository
 {
     public interface IPersonRepository
     {
-        void Add(Person person);
-        void Remove(Person person);
+        Task<int> AddAsync(Person person);
+        Task<int> RemoveAsync(Person person);
+
+        Person? GetByIdWithContacts(Guid id);
+
+        List<Person> GetAllWithContacts();
     }
 }
