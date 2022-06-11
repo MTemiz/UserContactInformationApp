@@ -1,5 +1,4 @@
-﻿using BuildingBlocks.Domain;
-using Report.Domain.Enums;
+﻿using Report.Domain.Enums;
 
 namespace Report.Domain.Entities
 {

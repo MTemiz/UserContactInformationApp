@@ -1,12 +1,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PersonContactInfo.Application.Features.Contact.Dtos;
-using PersonContactInfo.Application.Features.Person.Queries;
-using System.Net.Mime;
 using PersonContactInfo.Application.Features.Contact.Commands;
+using PersonContactInfo.Application.Features.Contact.Dtos;
 using PersonContactInfo.Application.Features.Person.Commands;
 using PersonContactInfo.Application.Features.Person.Dtos;
 using PersonContactInfo.Application.Features.Person.Queries;
+using System.Net.Mime;
 
 namespace PersonContactInfo.API.Controllers
 {
