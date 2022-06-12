@@ -56,7 +56,7 @@ Install Docker / Install PostreSQL and RabbitMQ
 
 if you would like to update connection string you will need to update PersonContactInfo.API/Report.API appsettings.json ConnectionStrings/DatabaseConnection section. Every project has a migration file, when you would run applications, databases will automatically created.
 
-**Message Queue Bağlantısı**
+**Message Queue Configuration**
 
 if you would like to update rabbitmq connection string you will need to update PersonContactInfo.API/Report.API appsettings.json RabbitMQConnection section.
 
