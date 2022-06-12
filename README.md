@@ -11,16 +11,16 @@ Report.API reads the message, updates report request state and saves report resu
 
 **PersonContactInfo Api**
 
-* Adding/removing person
-* adding/removing contact information to person
-* listing person
-* getting details for a person
+* Add/remove person
+* Add/remove contact information to person
+* Lists persons
+* Provides details for a person
 
 **Report Api**
 
-* creating a report containing people
-* listing reports
-* getting details for a report
+* Creates a report containing people
+* Lists reports
+* Provides details for a report
 
 **Technologies**
 
@@ -49,7 +49,8 @@ Report.API reads the message, updates report request state and saves report resu
 **Getting Started**
 
 Install the latest .NET 6 SDK
-Install Docker or Install PostreSQL and RabbitMQ
+
+Install Docker / Install PostreSQL and RabbitMQ
 
 **Database Configuration**
 
