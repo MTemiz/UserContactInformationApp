@@ -19,7 +19,7 @@ namespace Report.Application.Features.LocationReport.Queries
 
         public async Task<IEnumerable<LocationReportDto>> Handle(ListLocationReportsQuery request, CancellationToken cancellationToken)
         {
-            var locationReports = await locationReportRepository.GetAll().ToListAsync();
+            var locationReports = locationReportRepository.GetAll().ToList();
 
             var locationReportDtos = mapper.Map<IEnumerable<LocationReportDto>>(locationReports);
 
