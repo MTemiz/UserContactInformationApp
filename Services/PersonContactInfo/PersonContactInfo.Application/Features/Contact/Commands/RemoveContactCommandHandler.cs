@@ -22,7 +22,7 @@ namespace PersonContactInfo.Application.Features.Contact.Commands
 
             if (contact is null)
             {
-                throw new NotFoundException();
+                throw new NotFoundException("contact not found");
             }
 
             await contactRepository.RemoveAsync(contact);

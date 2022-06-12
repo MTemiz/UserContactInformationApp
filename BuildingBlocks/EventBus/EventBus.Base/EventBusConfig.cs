@@ -7,16 +7,13 @@ namespace EventBus.Base
 
         public int ConnectionRetryCount { get; set; } = 3;
 
-        public string DefaultTopicName { get; set; } = "LocationReportTopic";
-
-        public string EventBusConnectionString { get; set; }
+        public string DefaultTopicName { get; set; }
 
         public string SubscriberClientName { get; set; }
 
-        public EventBusType EventBusType { get; set; } = EventBusType.RabbitMQ;
+        public EventBusType EventBusType { get; set; }
 
         public string HostName { get; set; }
-
-        public object Connection { get; set; }
+        public int Port { get; set; }
     }
 }

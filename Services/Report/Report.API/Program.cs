@@ -1,10 +1,20 @@
+using EventBus.Base;
+using Microsoft.Extensions.Options;
 using Report.API.Extensions;
+using Report.API.Middlewares;
 using Report.Application.Extensions;
 using Report.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.Configure<EventBusConfig>(builder.Configuration.GetSection("RabbitMqConnection"));
+
+builder.Services.AddSingleton<EventBusConfig>(c =>
+{
+    return c.GetRequiredService<IOptions<EventBusConfig>>().Value;
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -29,4 +39,5 @@ app.UseAuthorization();
 app.MapControllers();
 app.SubscribeEventBus();
 app.DatabaseMigrate();
+app.UseMiddleware<ExceptionMiddleware>();
 app.Run();

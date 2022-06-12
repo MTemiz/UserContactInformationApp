@@ -23,7 +23,7 @@ namespace PersonContactInfo.Application.Features.Person.Queries
 
             if (person is null)
             {
-                throw new NotFoundException();
+                throw new NotFoundException("person not found");
             }
 
             var personContactDto = mapper.Map<PersonContactDto>(person);

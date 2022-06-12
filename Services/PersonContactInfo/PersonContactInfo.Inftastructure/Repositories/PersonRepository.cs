@@ -26,6 +26,11 @@ namespace PersonContactInfo.Inftastructure.Repositories
             return await context.Persons.ToListAsync();
         }
 
+        public async Task<Person?> GetByIdAsync(Guid id)
+        {
+            return await context.Persons.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
         public async Task<Person?> GetByIdWithContactsAsync(Guid id)
         {
             return await context.Persons.Include(c => c.Contacts).FirstOrDefaultAsync(c => c.Id == id);

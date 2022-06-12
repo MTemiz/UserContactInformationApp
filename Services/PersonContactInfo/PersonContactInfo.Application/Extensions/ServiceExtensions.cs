@@ -2,7 +2,9 @@
 using EventBus.Base.Abstraction;
 using EventBus.Factory;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using PersonContactInfo.Application.Features.Contact.Commands;
 using PersonContactInfo.Application.Features.Contact.Dtos;
 using PersonContactInfo.Application.Features.Person.Commands;
@@ -39,14 +41,7 @@ namespace PersonContactInfo.Application.Extensions
         {
             services.AddSingleton<IEventBus>(sp =>
             {
-                EventBusConfig config = new()
-                {
-                    ConnectionRetryCount = 5,
-                    SubscriberClientName = "PersonContactService",
-                    Connection = new ConnectionFactory(),
-                    HostName = "localhost",
-                    EventBusType = EventBus.Base.Constants.EventBusType.RabbitMQ,
-                };
+                var config = sp.GetRequiredService<EventBusConfig>();
 
                 return EventBusFactory.Create(config, sp);
             });

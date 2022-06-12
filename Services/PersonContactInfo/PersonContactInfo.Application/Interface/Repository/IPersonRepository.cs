@@ -8,5 +8,6 @@ namespace PersonContactInfo.Application.Interface.Repository
         Task RemoveAsync(Person person);
         Task<Person?> GetByIdWithContactsAsync(Guid id);
         Task<List<Person>> GetAllAsync();
+        Task<Person?> GetByIdAsync(Guid id);
     }
 }

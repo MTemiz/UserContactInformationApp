@@ -27,7 +27,7 @@ namespace EventBus.RabbitMQ
                 connectionFactory = new ConnectionFactory()
                 {
                     HostName = eventBusConfig.HostName,
-                    Port = 5672
+                    Port = eventBusConfig.Port
                 };
             }
             else

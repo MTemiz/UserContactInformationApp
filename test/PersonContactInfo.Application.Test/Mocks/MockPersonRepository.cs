@@ -117,10 +117,17 @@ namespace PersonContactInfo.Application.Test.Mocks
             .Returns(new Func<Guid, Task<Person?>>(
              guid =>
              {
-                 return Task.FromResult(persons.FirstOrDefault(c => c.Id == guid));
+                 return Task.FromResult(personsWithContact.FirstOrDefault(c => c.Id == guid));
              }));
 
             mockRepo.Setup(c => c.GetAllAsync()).Returns(Task.FromResult(persons.ToList()));
+
+            mockRepo.Setup(x => x.GetByIdAsync(It.IsAny<Guid>()))
+            .Returns(new Func<Guid, Task<Person?>>(
+             guid =>
+             {
+                 return Task.FromResult(persons.FirstOrDefault(c => c.Id == guid));
+             }));
 
             return mockRepo;
         }

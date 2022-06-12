@@ -19,7 +19,7 @@ namespace PersonContactInfo.Application.Features.Person.Commands
 
             if (person is null)
             {
-                throw new NotFoundException();
+                throw new NotFoundException("person not found");
             }
 
             await personRepository.RemoveAsync(person);

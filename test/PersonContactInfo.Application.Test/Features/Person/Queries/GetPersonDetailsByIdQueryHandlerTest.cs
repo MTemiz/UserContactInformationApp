@@ -24,6 +24,7 @@ namespace PersonContactInfo.Application.Test.Features.Person.Queries
             var mapperConfig = new MapperConfiguration(c =>
             {
                 c.AddProfile<PersonMappingProfile>();
+                c.AddProfile<ContactMappingProfile>();
             });
 
             mapper = mapperConfig.CreateMapper();

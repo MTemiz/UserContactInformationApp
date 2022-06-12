@@ -19,7 +19,6 @@ namespace EventBus.Test
             {
                 ConnectionRetryCount = 5,
                 SubscriberClientName = "PersonContactService",
-                Connection = new ConnectionFactory(),
                 HostName = "localhost",
                 EventBusType = busType,
             };

@@ -32,14 +32,7 @@ namespace Report.Application.Extensions
         {
             services.AddSingleton<IEventBus>(sp =>
              {
-                 EventBusConfig config = new()
-                 {
-                     ConnectionRetryCount = 5,
-                     SubscriberClientName = "ReportService",
-                     Connection = new ConnectionFactory(),
-                     HostName = "localhost",
-                     EventBusType = EventBusType.RabbitMQ,
-                 };
+                 var config = sp.GetRequiredService<EventBusConfig>();
 
                  return EventBusFactory.Create(config, sp);
              });
