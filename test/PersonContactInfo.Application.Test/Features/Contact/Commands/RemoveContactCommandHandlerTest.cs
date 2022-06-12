@@ -54,6 +54,8 @@ namespace PersonContactInfo.Application.Test.Features.Contact.Commands
 
             var result = await handler.Handle(command, CancellationToken.None);
 
+            mockPersonRepository.Verify(c => c.RemoveAsync(It.IsAny<Domain.Entities.Contact>()), Times.Once);
+
             Assert.Equal(0, result);
         }
     }

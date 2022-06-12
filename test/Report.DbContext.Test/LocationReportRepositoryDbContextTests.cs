@@ -3,8 +3,9 @@ using Report.Domain.Entities;
 using Report.Infrastructure.Context;
 using Report.Infrastructure.Repositories;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Xunit;
+using Xunit;  
 
 namespace Report.DbContext.Test
 {
@@ -57,7 +58,7 @@ namespace Report.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var personList = await repository.GetAll().ToListAsync();
+            var personList = await repository.GetAllAsync();
 
             Assert.Equal(3, personList.Count);
         }
@@ -67,7 +68,7 @@ namespace Report.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var countBeforeAction = await repository.GetAll().CountAsync();
+            var countBeforeAction = (await repository.GetAllAsync()).Count;
 
             await repository.AddAsync(new LocationReport()
             {
@@ -75,7 +76,7 @@ namespace Report.DbContext.Test
                 State = Domain.Enums.EnmLocationReportState.Preparing
             });
 
-            var countAfterAction = await repository.GetAll().CountAsync();
+            var countAfterAction = (await repository.GetAllAsync()).Count;
 
             Assert.True(countAfterAction > countBeforeAction);
         }
@@ -85,7 +86,7 @@ namespace Report.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var beforeUpdatelocationReport = await repository.GetAll().FirstAsync();
+            var beforeUpdatelocationReport = (await repository.GetAllAsync()).First();
 
             beforeUpdatelocationReport.State = Domain.Enums.EnmLocationReportState.Completed;
 

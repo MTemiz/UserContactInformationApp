@@ -14,16 +14,16 @@ namespace Report.Infrastructure.Repositories
             this.context = context;
         }
 
-        public async Task<int> AddAsync(LocationReport locationReport)
+        public async Task AddAsync(LocationReport locationReport)
         {
             await context.LocationReports.AddAsync(locationReport);
 
-            return await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
-        public IQueryable<LocationReport> GetAll()
+        public async Task<List<LocationReport>> GetAllAsync()
         {
-            return context.LocationReports.AsQueryable();
+            return await context.LocationReports.ToListAsync();
         }
 
         public async Task<LocationReport?> GetByIdAsync(Guid id)

@@ -4,6 +4,7 @@ using PersonContactInfo.Inftastructure.Context;
 using PersonContactInfo.Inftastructure.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -72,9 +73,9 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var contactList = await repository.GetAll().ToListAsync();
+            var contactList = await repository.GetAllAsync();
 
-            Assert.Equal(3, contactList.Count);
+            Assert.True(contactList.Count > 0);
         }
 
         [Fact]
@@ -82,13 +83,15 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var countBeforeAction = await repository.GetAll().CountAsync();
+            var contacts = await repository.GetAllAsync();
 
-            var contact = await repository.GetAll().FirstAsync();
+            var countBeforeAction = contacts.Count;
+
+            var contact = contacts.First();
 
             await repository.RemoveAsync(contact);
 
-            var countAfterAction = await repository.GetAll().CountAsync();
+            var countAfterAction = (await repository.GetAllAsync()).Count;
 
             Assert.True(countBeforeAction > countAfterAction);
         }
@@ -98,9 +101,11 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var countBeforeAction = await repository.GetAll().CountAsync();
+            var contactList = await repository.GetAllAsync();
 
-            var contact = await repository.GetAll().FirstAsync();
+            var countBeforeAction = contactList.Count();
+
+            var contact = contactList.First();
 
             await repository.AddAsync(new Contact()
             {
@@ -111,7 +116,7 @@ namespace PersonContactInfo.DbContext.Test
                 Phone = "5559992211"
             });
 
-            var countAfterAction = await repository.GetAll().CountAsync();
+            var countAfterAction = (await repository.GetAllAsync()).Count;
 
             Assert.True(countBeforeAction < countAfterAction);
         }

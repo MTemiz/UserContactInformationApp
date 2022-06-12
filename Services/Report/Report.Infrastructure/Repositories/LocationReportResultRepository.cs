@@ -13,11 +13,11 @@ namespace Report.Infrastructure.Repositories
             this.context = context;
         }
 
-        public async Task<int> AddAsync(LocationReportResult locationReportResult)
+        public async Task AddAsync(LocationReportResult locationReportResult)
         {
             await context.LocationReportResults.AddAsync(locationReportResult);
 
-            return await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
     }
 }

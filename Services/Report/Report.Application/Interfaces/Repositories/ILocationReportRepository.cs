@@ -4,9 +4,9 @@ namespace Report.Application.Interfaces.Repositories
 {
     public interface ILocationReportRepository
     {
-        Task<int> AddAsync(LocationReport locationReport);
+        Task AddAsync(LocationReport locationReport);
 
-        IQueryable<LocationReport> GetAll();
+        Task<List<LocationReport>> GetAllAsync();
 
         Task<LocationReport?> GetByIdAsync(Guid id);
 

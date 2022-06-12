@@ -31,15 +31,17 @@ namespace PersonContactInfo.Application.Test.Features.Person.Queries
         }
 
         [Fact]
-        public async Task ListPersonsQueryHandler_WhenGetAll_RetusnValid()
+        public async Task ListPersonsQueryHandler_WhenGetAll_ReturnsValid()
         {
             var handler = new ListPersonsQueryHandler(mockPersonRepository.Object, mapper);
 
             var result = await handler.Handle(new ListPersonsQuery(), CancellationToken.None);
 
+            mockPersonRepository.Verify(c => c.GetAllAsync(), Times.Once);
+
             result.ShouldBeOfType<List<PersonDto>>();
 
-            result.Count.ShouldBe(3);
+            result.Count.ShouldBeGreaterThan(0);
         }
     }
 }

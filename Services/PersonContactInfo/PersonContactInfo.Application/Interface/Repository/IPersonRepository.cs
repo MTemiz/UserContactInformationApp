@@ -4,9 +4,9 @@ namespace PersonContactInfo.Application.Interface.Repository
 {
     public interface IPersonRepository
     {
-        Task<int> AddAsync(Person person);
-        Task<int> RemoveAsync(Person person);
+        Task AddAsync(Person person);
+        Task RemoveAsync(Person person);
         Task<Person?> GetByIdWithContactsAsync(Guid id);
-        IQueryable<Person> GetAll();
+        Task<List<Person>> GetAllAsync();
     }
 }

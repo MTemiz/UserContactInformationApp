@@ -4,6 +4,7 @@ using PersonContactInfo.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PersonContactInfo.Application.Test.Mocks
 {
@@ -53,31 +54,37 @@ namespace PersonContactInfo.Application.Test.Mocks
 
             var mockRepo = new Mock<IContactRepository>();
 
-            mockRepo.Setup(c => c.GetAll()).Returns(contacts.AsQueryable());
+            mockRepo.Setup(c => c.GetAllAsync()).Returns(Task.FromResult(contacts.ToList()));
 
-            mockRepo.Setup(c => c.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((Guid id) =>
+            mockRepo.Setup(x => x.GetByIdAsync(It.IsAny<Guid>()))
+            .Returns(new Func<Guid, Task<Contact?>>(
+             guid =>
+             {
+                 return Task.FromResult(contacts.FirstOrDefault(c => c.Id == guid));
+             }));
+
+            mockRepo.Setup(x => x.GetByPersonIdAsync(It.IsAny<Guid>()))
+           .Returns(new Func<Guid, Task<List<Contact>>>(
+            guid =>
             {
-              return contacts.FirstOrDefault(c => c.Id == id);
-            });
+                return Task.FromResult(contacts.Where(c => c.PersonId == guid).ToList());
+            }));
 
-            mockRepo.Setup(c => c.GetByPersonIdAsync(It.IsAny<Guid>())).ReturnsAsync((Guid id) =>
-            {
-              return contacts.Where(c => c.PersonId == id).ToList();
-            });
+            mockRepo.Setup(x => x.AddAsync(It.IsAny<Domain.Entities.Contact>()))
+            .Returns(new Func<Contact, Task>(
+                contact =>
+                {
+                    contacts.Add(contact);
+                    return Task.CompletedTask;
+                }));
 
-            mockRepo.Setup(c => c.AddAsync(It.IsAny<Contact>())).ReturnsAsync((Contact contact) =>
-            {
-              contacts.ToList().Add(contact);
-              return 0;
-            });
-
-            mockRepo.Setup(c => c.RemoveAsync(It.IsAny<Contact>())).ReturnsAsync((Contact contact) =>
-            {
-              contacts.Remove(contact);
-              return 0;
-            });
-
-
+            mockRepo.Setup(x => x.RemoveAsync(It.IsAny<Domain.Entities.Contact>()))
+             .Returns(new Func<Contact, Task>(
+              contact =>
+              {
+                  contacts.Remove(contact);
+                  return Task.CompletedTask;
+              }));
 
             return mockRepo;
         }

@@ -7,8 +7,8 @@ namespace PersonContactInfo.Application.Interface.Repository
         Task<Contact?> GetByIdAsync(Guid id);
         Task<List<Contact>> GetByPersonIdAsync(Guid personId);
 
-        Task<int> AddAsync(Contact contact);
-        Task<int> RemoveAsync(Contact contact);
-        IQueryable<Contact> GetAll();
+        Task AddAsync(Contact contact);
+        Task RemoveAsync(Contact contact);
+        Task<List<Contact>> GetAllAsync();
     }
 }

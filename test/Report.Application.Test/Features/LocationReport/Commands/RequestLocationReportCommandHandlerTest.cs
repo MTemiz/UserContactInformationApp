@@ -36,8 +36,6 @@ namespace Report.Application.Test.Features.LocationReport.Commands
         [Fact]
         public async Task RequestLocationReportCommandHandler_WhenAddReport_ReturnsValidAndHitsEventBus()
         {
-            eventBus.Verify();
-
             var handler = new RequestLocationReportCommandHandler(locationReportRepository.Object, mapper, eventBus.Object);
 
             var command = new RequestLocationReportCommand();

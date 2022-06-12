@@ -42,11 +42,7 @@ namespace PersonContactInfo.Application.Test.Features.Person.Commands
 
             var result = await handler.Handle(command, CancellationToken.None);
 
-            Assert.NotNull(result);
-            Assert.Equal(result.Name, command.Name);
-            Assert.Equal(result.Surname, command.Surname);
-            Assert.Equal(result.Company, command.Company);
-            Assert.IsType(typeof(Guid), result.Id);
+            mockPersonRepository.Verify(c => c.AddAsync(It.IsAny<Domain.Entities.Person>()), Times.Once);
         }
     }
 }

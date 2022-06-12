@@ -14,11 +14,11 @@ namespace PersonContactInfo.Inftastructure.Repositories
             this.context = context;
         }
 
-        public async Task<int> AddAsync(Contact contact)
+        public async Task AddAsync(Contact contact)
         {
             await context.Contacts.AddAsync(contact);
 
-            return await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
         public async Task<Contact?> GetByIdAsync(Guid id)
@@ -31,16 +31,16 @@ namespace PersonContactInfo.Inftastructure.Repositories
             return await context.Contacts.Where(c => c.PersonId == personId).ToListAsync();
         }
 
-        public async Task<int> RemoveAsync(Contact contact)
+        public async Task RemoveAsync(Contact contact)
         {
             context.Contacts.Remove(contact);
 
-            return await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
-        public IQueryable<Contact> GetAll()
+        public async Task<List<Contact>> GetAllAsync()
         {
-            return context.Contacts.AsQueryable();
+            return await context.Contacts.ToListAsync();
         }
     }
 }

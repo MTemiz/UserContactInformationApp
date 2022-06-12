@@ -19,7 +19,7 @@ namespace PersonContactInfo.Application.Features.Person.Queries
 
         public async Task<List<PersonDto>> Handle(ListPersonsQuery request, CancellationToken cancellationToken)
         {
-            var personList = personRepository.GetAll();
+            var personList = await personRepository.GetAllAsync();
 
             var personDtoList = mapper.Map<List<PersonDto>>(personList);
 

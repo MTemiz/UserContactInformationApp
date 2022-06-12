@@ -4,6 +4,7 @@ using PersonContactInfo.Inftastructure.Context;
 using PersonContactInfo.Inftastructure.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -72,9 +73,9 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var personList = await repository.GetAll().ToListAsync();
+            var personList = await repository.GetAllAsync();
 
-            Assert.Equal(3, personList.Count);
+            Assert.True(personList.Count > 0);
         }
 
         [Fact]
@@ -82,13 +83,15 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var countBeforeAction = await repository.GetAll().CountAsync();
+            var personList = await repository.GetAllAsync();
 
-            var person = await repository.GetAll().FirstAsync();
+            var countBeforeAction = personList.Count;
+
+            var person = personList.First();
 
             await repository.RemoveAsync(person);
 
-            var countAfterAction = await repository.GetAll().CountAsync();
+            var countAfterAction = (await repository.GetAllAsync()).Count;
 
             Assert.True(countBeforeAction > countAfterAction);
         }
@@ -98,7 +101,7 @@ namespace PersonContactInfo.DbContext.Test
         {
             var repository = await CreateRepositoryAsync();
 
-            var countBeforeAction = await repository.GetAll().CountAsync();
+            var countBeforeAction = (await repository.GetAllAsync()).Count;
 
             await repository.AddAsync(new Person()
             {
@@ -107,7 +110,7 @@ namespace PersonContactInfo.DbContext.Test
                 Company = "x"
             });
 
-            var countAfterAction = await repository.GetAll().CountAsync();
+            var countAfterAction = (await repository.GetAllAsync()).Count;
 
             Assert.True(countAfterAction > countBeforeAction);
         }

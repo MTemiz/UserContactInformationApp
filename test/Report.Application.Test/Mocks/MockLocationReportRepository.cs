@@ -4,6 +4,7 @@ using Report.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Report.Application.Test.Mocks
 {
@@ -61,24 +62,31 @@ namespace Report.Application.Test.Mocks
 
             var mockRepo = new Mock<ILocationReportRepository>();
 
-            mockRepo.Setup(c => c.AddAsync(It.IsAny<LocationReport>())).ReturnsAsync((LocationReport locationReport) =>
-            {
-                locationReport.Id = Guid.NewGuid();
-                locationReports.Add(locationReport);
-                return 0;
-            });
+            mockRepo.Setup(x => x.AddAsync(It.IsAny<Domain.Entities.LocationReport>()))
+            .Returns(new Func<LocationReport, Task>(
+                locationReport =>
+                {
+                    locationReport.Id = Guid.NewGuid();
+                    locationReports.Add(locationReport);
 
-            mockRepo.Setup(c => c.GetAll()).Returns(locationReports.AsQueryable());
+                    return Task.CompletedTask;
+                }));
 
-            mockRepo.Setup(c => c.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((Guid id) =>
+            mockRepo.Setup(x => x.GetByIdWithResultsAsync(It.IsAny<Guid>()))
+           .Returns(new Func<Guid, Task<LocationReport?>>(
+            guid =>
             {
-                return locationReports.FirstOrDefault(c => c.Id == id);
-            });
+                return Task.FromResult(locationReportsWithResults.FirstOrDefault(c => c.Id == guid));
+            }));
 
-            mockRepo.Setup(c => c.GetByIdWithResultsAsync(It.IsAny<Guid>())).ReturnsAsync((Guid guid) =>
+            mockRepo.Setup(x => x.GetAllAsync()).Returns(Task.FromResult(locationReports));
+
+            mockRepo.Setup(x => x.GetByIdAsync(It.IsAny<Guid>()))
+           .Returns(new Func<Guid, Task<LocationReport?>>(
+            guid =>
             {
-                return locationReportsWithResults.FirstOrDefault(c => c.Id == guid);
-            });
+                return Task.FromResult(locationReports.FirstOrDefault(c => c.Id == guid));
+            }));
 
             return mockRepo;
         }

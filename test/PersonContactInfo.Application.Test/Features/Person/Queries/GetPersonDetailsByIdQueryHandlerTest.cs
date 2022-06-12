@@ -46,6 +46,8 @@ namespace PersonContactInfo.Application.Test.Features.Person.Queries
 
             var result = await handler.Handle(new GetPersonDetailsByIdQuery() { Id = guid }, CancellationToken.None);
 
+            mockPersonRepository.Verify(c => c.GetByIdWithContactsAsync(It.IsAny<Guid>()), Times.Once);
+
             Assert.Equal(result.Id, guid);
         }
     }
