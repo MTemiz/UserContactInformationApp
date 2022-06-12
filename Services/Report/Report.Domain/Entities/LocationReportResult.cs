@@ -1,6 +1,4 @@
-﻿using BuildingBlocks.Domain;
-
-namespace Report.Domain.Entities
+﻿namespace Report.Domain.Entities
 {
     public class LocationReportResult : BaseEntity
     {

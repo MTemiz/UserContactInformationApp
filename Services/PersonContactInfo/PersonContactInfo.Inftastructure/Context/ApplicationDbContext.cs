@@ -1,5 +1,4 @@
-﻿using BuildingBlocks.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PersonContactInfo.Application.Interface.Context;
 using PersonContactInfo.Domain.Entities;
 using PersonContactInfo.Inftastructure.Configuration;

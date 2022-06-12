@@ -1,6 +1,4 @@
-﻿using BuildingBlocks.Domain;
-
-namespace PersonContactInfo.Domain.Entities
+﻿namespace PersonContactInfo.Domain.Entities
 {
     public class Person : BaseEntity
     {

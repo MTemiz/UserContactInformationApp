@@ -5,7 +5,7 @@ using PersonContactInfo.Application.Interface.Repository;
 
 namespace PersonContactInfo.Application.Features.Contact.Commands
 {
-    internal class RemoveContactCommandHandler : IRequestHandler<RemoveContactCommand, int>
+    public class RemoveContactCommandHandler : IRequestHandler<RemoveContactCommand, int>
     {
         private readonly IContactRepository contactRepository;
         private readonly IMapper mapper;
