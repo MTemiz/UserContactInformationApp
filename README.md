@@ -90,3 +90,7 @@ if you would like to update rabbitmq connection string you will need to update P
 * Middlewares,
 * Global exception handling
 * Controllers
+
+**Code Coverage %62,06**
+![image](https://user-images.githubusercontent.com/43716821/173254827-fe91a406-2ffb-449b-a959-001f771fdb5c.png)
+
