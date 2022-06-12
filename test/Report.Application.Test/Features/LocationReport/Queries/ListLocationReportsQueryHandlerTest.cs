@@ -39,7 +39,12 @@ namespace Report.Application.Test.Features.LocationReport.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
+            mockLocationReportRepository.Verify(c => c.GetAllAsync(), Times.Once);
+
+            mockLocationReportRepository.VerifyNoOtherCalls();
+
             Assert.NotNull(result);
+
             Assert.Equal(2, result.Count());
         }
     }

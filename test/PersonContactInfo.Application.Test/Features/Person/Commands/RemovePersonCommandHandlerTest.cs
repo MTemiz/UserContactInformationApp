@@ -36,7 +36,11 @@ namespace PersonContactInfo.Application.Test.Features.Person.Commands
 
             var result = await handler.Handle(new RemovePersonCommand() { Id = guid }, CancellationToken.None);
 
+            mockPersonRepository.Verify(c => c.GetByIdWithContactsAsync(It.IsAny<Guid>()), Times.Once);
+
             mockPersonRepository.Verify(c => c.RemoveAsync(It.IsAny<Domain.Entities.Person>()), Times.Once);
+
+            mockPersonRepository.VerifyNoOtherCalls();
 
             Assert.Equal(0, result);
         }

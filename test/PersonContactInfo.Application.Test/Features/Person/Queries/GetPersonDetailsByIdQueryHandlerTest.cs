@@ -48,6 +48,8 @@ namespace PersonContactInfo.Application.Test.Features.Person.Queries
 
             mockPersonRepository.Verify(c => c.GetByIdWithContactsAsync(It.IsAny<Guid>()), Times.Once);
 
+            mockPersonRepository.VerifyNoOtherCalls();
+
             Assert.Equal(result.Id, guid);
         }
     }

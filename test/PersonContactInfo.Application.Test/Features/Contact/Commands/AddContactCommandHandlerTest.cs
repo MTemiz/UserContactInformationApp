@@ -46,6 +46,8 @@ namespace PersonContactInfo.Application.Test.Features.Contact.Commands
 
             mockPersonRepository.Verify(c => c.AddAsync(It.IsAny<Domain.Entities.Contact>()), Times.Once);
 
+            mockPersonRepository.VerifyNoOtherCalls();
+
             Assert.NotNull(result);
             Assert.Equal(result.Email, command.Email);
             Assert.Equal(result.Location, command.Location);

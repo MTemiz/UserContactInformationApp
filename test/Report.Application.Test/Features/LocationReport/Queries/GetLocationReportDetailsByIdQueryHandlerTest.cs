@@ -50,6 +50,10 @@ namespace Report.Application.Test.Features.LocationReport.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
+            mockLocationReportRepository.Verify(c => c.GetByIdWithResultsAsync(It.IsAny<Guid>()), Times.Once);
+
+            mockLocationReportRepository.VerifyNoOtherCalls();
+
             Assert.Equal(result.Id, query.Id);
         }
     }

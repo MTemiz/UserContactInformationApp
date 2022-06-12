@@ -39,6 +39,8 @@ namespace PersonContactInfo.Application.Test.Features.Person.Queries
 
             mockPersonRepository.Verify(c => c.GetAllAsync(), Times.Once);
 
+            mockPersonRepository.VerifyNoOtherCalls();
+
             result.ShouldBeOfType<List<PersonDto>>();
 
             result.Count.ShouldBeGreaterThan(0);

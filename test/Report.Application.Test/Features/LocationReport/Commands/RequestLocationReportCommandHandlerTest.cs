@@ -44,6 +44,8 @@ namespace Report.Application.Test.Features.LocationReport.Commands
 
             eventBus.Verify(c => c.Publish(It.IsAny<IntegrationEvent>()), Times.Once);
 
+            locationReportRepository.Verify(c => c.AddAsync(It.IsAny<Domain.Entities.LocationReport>()), Times.Once);
+
             Assert.NotNull(result.State);
             Assert.True(result.RequestedDate.Date == DateTime.Now.Date);
         }
@@ -58,6 +60,10 @@ namespace Report.Application.Test.Features.LocationReport.Commands
             var command = new RequestLocationReportCommand();
 
             var result = await handler.Handle(command, CancellationToken.None);
+
+            locationReportRepository.Verify(c => c.AddAsync(It.IsAny<Domain.Entities.LocationReport>()), Times.Once);
+
+            locationReportRepository.VerifyNoOtherCalls();
 
             Assert.Equal("Preparing", result.State);
         }

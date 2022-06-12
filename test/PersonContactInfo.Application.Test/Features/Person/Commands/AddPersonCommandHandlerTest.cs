@@ -43,6 +43,8 @@ namespace PersonContactInfo.Application.Test.Features.Person.Commands
             var result = await handler.Handle(command, CancellationToken.None);
 
             mockPersonRepository.Verify(c => c.AddAsync(It.IsAny<Domain.Entities.Person>()), Times.Once);
+
+            mockPersonRepository.VerifyNoOtherCalls();
         }
     }
 }
