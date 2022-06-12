@@ -37,9 +37,9 @@ namespace Report.API.Controllers
 
         [HttpGet]
         [Route("getreportdetailsbyid")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LocationReportDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LocationReportDetailDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetPersonDetailsById([FromQuery] GetLocationReportDetailsByIdQuery query)
+        public async Task<IActionResult> GetReportDetailsById([FromQuery] GetLocationReportDetailsByIdQuery query)
         {
             return Ok(await mediator.Send(query));
         }

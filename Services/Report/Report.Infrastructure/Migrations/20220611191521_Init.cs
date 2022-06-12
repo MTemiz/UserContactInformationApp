@@ -62,8 +62,7 @@ namespace Report.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_LocationReportResult_LocationReportId",
                 table: "LocationReportResult",
-                column: "LocationReportId",
-                unique: true);
+                column: "LocationReportId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

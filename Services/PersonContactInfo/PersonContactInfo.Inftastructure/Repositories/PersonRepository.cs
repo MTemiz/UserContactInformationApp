@@ -21,9 +21,9 @@ namespace PersonContactInfo.Inftastructure.Repositories
             return await context.SaveChangesAsync();
         }
 
-        public async Task<List<Person>> GetAllWithContactsAsync()
+        public IQueryable<Person> GetAll()
         {
-            return await context.Persons.Include(c => c.Contacts).ToListAsync();
+            return context.Persons.AsQueryable();
         }
 
         public async Task<Person?> GetByIdWithContactsAsync(Guid id)

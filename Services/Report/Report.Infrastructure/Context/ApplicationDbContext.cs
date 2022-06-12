@@ -18,8 +18,6 @@ namespace Report.Infrastructure.Context
             builder.ApplyConfiguration(new LocationReportEntityTypeConfiguration());
             builder.ApplyConfiguration(new LocationReportResultEntityTypeConfiguration());
 
-            builder.Entity<LocationReportResult>().HasIndex(c => c.LocationReportId).IsUnique();
-
             base.OnModelCreating(builder);
         }
 

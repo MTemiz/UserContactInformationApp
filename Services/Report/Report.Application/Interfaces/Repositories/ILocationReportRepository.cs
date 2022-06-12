@@ -11,5 +11,7 @@ namespace Report.Application.Interfaces.Repositories
         Task<LocationReport?> GetByIdAsync(Guid id);
 
         Task<int> UpdateAsync(LocationReport locationReport);
+
+        Task<LocationReport?> GetByIdWithResultsAsync(Guid id);
     }
 }

@@ -6,7 +6,7 @@ using Report.Application.Interfaces.Repositories;
 
 namespace Report.Application.Features.LocationReport.Queries
 {
-    public class GetLocationReportDetailsByIdQueryHandler : IRequestHandler<GetLocationReportDetailsByIdQuery, LocationReportDto>
+    public class GetLocationReportDetailsByIdQueryHandler : IRequestHandler<GetLocationReportDetailsByIdQuery, LocationReportDetailDto>
     {
         private readonly ILocationReportRepository locationReportRepository;
         private readonly IMapper mapper;
@@ -17,16 +17,16 @@ namespace Report.Application.Features.LocationReport.Queries
             this.mapper = mapper;
         }
 
-        public async Task<LocationReportDto> Handle(GetLocationReportDetailsByIdQuery request, CancellationToken cancellationToken)
+        public async Task<LocationReportDetailDto> Handle(GetLocationReportDetailsByIdQuery request, CancellationToken cancellationToken)
         {
-            var locationReport = await locationReportRepository.GetByIdAsync(request.Id);
+            var locationReport = await locationReportRepository.GetByIdWithResultsAsync(request.Id);
 
             if (locationReport is null)
             {
                 throw new NotFoundException();
             }
 
-            var locationReportDto = mapper.Map<LocationReportDto>(locationReport);
+            var locationReportDto = mapper.Map<LocationReportDetailDto>(locationReport);
 
             return await Task.FromResult(locationReportDto);
         }

@@ -19,7 +19,7 @@ namespace Report.Application.Extensions
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped(typeof(IRequestHandler<RequestLocationReportCommand, LocationReportDto>), typeof(RequestLocationReportCommandHandler));
-            services.AddScoped(typeof(IRequestHandler<GetLocationReportDetailsByIdQuery, LocationReportDto>), typeof(GetLocationReportDetailsByIdQueryHandler));
+            services.AddScoped(typeof(IRequestHandler<GetLocationReportDetailsByIdQuery, LocationReportDetailDto>), typeof(GetLocationReportDetailsByIdQueryHandler));
             services.AddScoped(typeof(IRequestHandler<ListLocationReportsQuery, IEnumerable<LocationReportDto>>), typeof(ListLocationReportsQueryHandler));
         }
 

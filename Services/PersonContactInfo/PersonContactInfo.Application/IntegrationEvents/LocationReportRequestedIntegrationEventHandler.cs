@@ -6,7 +6,7 @@ using PersonContactInfo.Application.Interface.Repository;
 namespace PersonContactInfo.Application.IntegrationEvents
 {
     public class LocationReportRequestedIntegrationEventHandler : IIntegrationEventHandler<LocationReportRequestedIntegrationEvent>
-    {
+     {
         private readonly IContactRepository contactRepository;
         private readonly IEventBus eventBus;
 

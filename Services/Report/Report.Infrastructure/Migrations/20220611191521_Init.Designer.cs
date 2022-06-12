@@ -12,7 +12,7 @@ using Report.Infrastructure.Context;
 namespace Report.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611174521_Init")]
+    [Migration("20220611191521_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,8 +82,7 @@ namespace Report.Infrastructure.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
-                    b.HasIndex("LocationReportId")
-                        .IsUnique();
+                    b.HasIndex("LocationReportId");
 
                     b.ToTable("LocationReportResult", (string)null);
                 });
@@ -91,16 +90,15 @@ namespace Report.Infrastructure.Migrations
             modelBuilder.Entity("Report.Domain.Entities.LocationReportResult", b =>
                 {
                     b.HasOne("Report.Domain.Entities.LocationReport", null)
-                        .WithOne("ReportResult")
-                        .HasForeignKey("Report.Domain.Entities.LocationReportResult", "LocationReportId")
+                        .WithMany("ReportResults")
+                        .HasForeignKey("LocationReportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Report.Domain.Entities.LocationReport", b =>
                 {
-                    b.Navigation("ReportResult")
-                        .IsRequired();
+                    b.Navigation("ReportResults");
                 });
 #pragma warning restore 612, 618
         }

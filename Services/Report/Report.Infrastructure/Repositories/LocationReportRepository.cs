@@ -31,6 +31,11 @@ namespace Report.Infrastructure.Repositories
             return await context.LocationReports.FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<LocationReport?> GetByIdWithResultsAsync(Guid id)
+        {
+            return await context.LocationReports.Include(c => c.ReportResults).FirstOrDefaultAsync(c => c.Id == id);
+        }
+
         public async Task<int> UpdateAsync(LocationReport locationReport)
         {
             context.LocationReports.Update(locationReport);

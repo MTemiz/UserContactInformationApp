@@ -6,7 +6,7 @@ using PersonContactInfo.Application.Interface.Repository;
 
 namespace PersonContactInfo.Application.Features.Person.Queries
 {
-    public class GetPersonDetailsByIdQueryHandler : IRequestHandler<GetPersonDetailsByIdQuery, PersonDto>
+    public class GetPersonDetailsByIdQueryHandler : IRequestHandler<GetPersonDetailsByIdQuery, PersonContactDto>
     {
         private readonly IPersonRepository personRepository;
         private readonly IMapper mapper;
@@ -17,7 +17,7 @@ namespace PersonContactInfo.Application.Features.Person.Queries
             this.mapper = mapper;
         }
 
-        public async Task<PersonDto> Handle(GetPersonDetailsByIdQuery request, CancellationToken cancellationToken)
+        public async Task<PersonContactDto> Handle(GetPersonDetailsByIdQuery request, CancellationToken cancellationToken)
         {
             var person = await personRepository.GetByIdWithContactsAsync(request.Id);
 
@@ -26,9 +26,9 @@ namespace PersonContactInfo.Application.Features.Person.Queries
                 throw new NotFoundException();
             }
 
-            var personDto = mapper.Map<PersonDto>(person);
+            var personContactDto = mapper.Map<PersonContactDto>(person);
 
-            return await Task.FromResult(personDto);
+            return await Task.FromResult(personContactDto);
         }
     }
 }

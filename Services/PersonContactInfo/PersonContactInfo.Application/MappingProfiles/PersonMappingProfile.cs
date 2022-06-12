@@ -12,6 +12,8 @@ namespace PersonContactInfo.Application.MappingProfiles
             CreateMap<AddPersonCommand, Person>();
 
             CreateMap<Person, PersonDto>();
+
+            CreateMap<Person, PersonContactDto>();
         }
     }
 }

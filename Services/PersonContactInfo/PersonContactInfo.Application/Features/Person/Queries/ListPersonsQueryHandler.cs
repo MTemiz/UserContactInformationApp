@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using PersonContactInfo.Application.Features.Person.Dtos;
 using PersonContactInfo.Application.Interface.Repository;
 
@@ -18,11 +19,11 @@ namespace PersonContactInfo.Application.Features.Person.Queries
 
         public async Task<List<PersonDto>> Handle(ListPersonsQuery request, CancellationToken cancellationToken)
         {
-            var personList = await personRepository.GetAllWithContactsAsync();
+            var personList = await personRepository.GetAll().ToListAsync();
 
             var personDtoList = mapper.Map<List<PersonDto>>(personList);
 
-           return await Task.FromResult(personDtoList);
+            return await Task.FromResult(personDtoList);
         }
     }
 }

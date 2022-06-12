@@ -16,6 +16,11 @@ namespace Report.Application.MappingProfiles
                 .ForMember(
                             dest => dest.State,
                             opt => opt.MapFrom((s, d) => d.State = s.State.ToString()));
+
+            CreateMap<LocationReport, LocationReportDetailDto>()
+    .ForMember(
+                dest => dest.State,
+                opt => opt.MapFrom((s, d) => d.State = s.State.ToString()));
         }
     }
 }

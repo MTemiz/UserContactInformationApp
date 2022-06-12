@@ -26,7 +26,7 @@ namespace PersonContactInfo.Application.Extensions
             services.AddScoped(typeof(IRequestHandler<AddPersonCommand, PersonDto>), typeof(AddPersonCommandHandler));
             services.AddScoped(typeof(IRequestHandler<RemovePersonCommand, int>), typeof(RemovePersonCommandHandler));
 
-            services.AddScoped(typeof(IRequestHandler<GetPersonDetailsByIdQuery, PersonDto>), typeof(GetPersonDetailsByIdQueryHandler));
+            services.AddScoped(typeof(IRequestHandler<GetPersonDetailsByIdQuery, PersonContactDto>), typeof(GetPersonDetailsByIdQueryHandler));
             services.AddScoped(typeof(IRequestHandler<ListPersonsQuery, List<PersonDto>>), typeof(ListPersonsQueryHandler));
         }
 
