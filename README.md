@@ -1,7 +1,7 @@
                 																		
 **Person Contact Information Application**
 
-Adding/removing person, adding/removing contact information to person, listing person, getting details for a person and creating a report containing people is aimed.
+Adding/removing person, adding/removing contact information to person, listing person, getting details for a person and creating a report containing persons is aimed.
 
 You would use PersonContact.API to do person business.
 
