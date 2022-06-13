@@ -22,6 +22,9 @@ Report.API reads the message, updates report request state and saves report resu
 * Lists reports
 * Provides details for a report
 
+![image](https://user-images.githubusercontent.com/43716821/173297766-dff32fce-2fba-463e-9ee6-744b7c0a4195.png)
+
+
 **Technologies**
 
 [ASP.Net Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
