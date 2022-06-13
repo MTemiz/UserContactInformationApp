@@ -76,6 +76,7 @@ if you would like to update rabbitmq connection string you will need to update P
 * Integration Events,
 * Interfaces,
 * Commands, Queries, Command  Query Handlers
+* Dtos
 
 **Infrastructure**
 
