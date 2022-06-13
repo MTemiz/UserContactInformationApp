@@ -11,12 +11,16 @@ Report.API reads the message, updates report request state and saves report resu
 
 **PersonContactInfo Api**
 
+http://localhost:5051/swagger/index.html
+
 * Add/remove person
 * Add/remove contact information to person
 * Lists persons
 * Provides details for a person
 
 **Report Api**
+
+http://localhost:5095/swagger/index.html
 
 * Creates a report containing people
 * Lists reports
