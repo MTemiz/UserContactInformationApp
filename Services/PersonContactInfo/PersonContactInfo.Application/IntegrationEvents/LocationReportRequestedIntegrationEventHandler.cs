@@ -27,8 +27,8 @@ namespace PersonContactInfo.Application.IntegrationEvents
                .Select(locations => new LocationBasedReportIntegrationDto()
                {
                    Location = locations.Key,
-                   PhoneCount = locations.Select(c => c.Phone).Count(),
-                   PersonCount = locations.Select(c => c.PersonId).Count()
+                   PhoneCount = locations.Select(c => c.Phone).Distinct().Count(),
+                   PersonCount = locations.Select(c => c.PersonId).Distinct().Count()
                }).ToList();
 
             eventBus.Publish(new LocationReportGeneratedIntegrationEvent(@event.Id, locationBasedReport));
